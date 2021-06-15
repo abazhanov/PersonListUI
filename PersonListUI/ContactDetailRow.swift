@@ -11,14 +11,28 @@ struct ContactDetailRow: View {
     let persons: [Person]
     
     var body: some View {
-        List { 
-            Section(header: Text("aaa")) {
-                Text("Row")
-                Text("Row")
+        NavigationView {
+            List {
+                ForEach(persons) { person in
+                    Section(header: Text("\(person.fullName)")) {
+                        HStack {
+                            Image(systemName: "phone")
+                                .foregroundColor(.blue)
+                            Text("\(person.phoneNumber)")
+                        }
+                        HStack {
+                            Image(systemName: "envelope")
+                                .foregroundColor(.blue)
+                            Text("\(person.email)")
+                        }
+                    }
+                }
             }
+            .navigationBarTitle("Contact List")
+            
         }
-        
     }
+    
 }
 
 struct ContactDetailRow_Previews: PreviewProvider {

@@ -13,14 +13,12 @@ struct ContactsScreen: View {
     var body: some View {
 
         NavigationView {
-            HStack {
-                List(persons) { person in
-                    NavigationLink(destination: PersonDetailScreen(person: person)) {
-                        PersonRow(person: person)
-                    }
+            List(persons) { person in
+                NavigationLink(destination: PersonDetailScreen(person: person)) {
+                    PersonRow(person: person)
                 }
-                .navigationBarTitle("Contact List")
             }
+            .navigationBarTitle("Contact List")
         }
     }
 }

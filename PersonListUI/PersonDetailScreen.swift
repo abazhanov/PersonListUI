@@ -12,29 +12,32 @@ struct PersonDetailScreen: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: UIScreen.main.bounds.width / 3,
-                       height:UIScreen.main.bounds.width / 3)
-                .padding()
-            HStack {
-                Image(systemName: "phone")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(.blue)
-                    
-                Text("\(person.phoneNumber)")
-                Spacer()
+            List {
+                Section(header: Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width / 3,
+                                   height:UIScreen.main.bounds.width / 3)
+                            
+                            .padding()
+                ){
+                    HStack {
+                        Image(systemName: "phone")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.blue)
+                            
+                        Text("\(person.phoneNumber)")
+                        Spacer()
+                    }
+                    HStack {
+                        Image(systemName: "envelope")
+                            .resizable()
+                            .frame(width: 30, height: 23)
+                            .foregroundColor(.blue)
+                        Text("\(person.email)")
+                    }
+                }
             }
-            HStack {
-                Image(systemName: "envelope")
-                    .resizable()
-                    .frame(width: 30, height: 23)
-                    .foregroundColor(.blue)
-                Text("\(person.email)")
-                Spacer()
-            }
-            Spacer()
         }
         .padding()
         .navigationBarTitle("Person detail")
