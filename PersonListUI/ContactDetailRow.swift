@@ -14,7 +14,8 @@ struct ContactDetailRow: View {
         NavigationView {
             List {
                 ForEach(persons) { person in
-                    Section(header: Text("\(person.fullName)")) {
+                    Section(header: Text("\(person.fullName)")
+                                .textCase(nil)) {
                         HStack {
                             Image(systemName: "phone")
                                 .foregroundColor(.blue)

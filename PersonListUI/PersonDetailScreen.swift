@@ -13,21 +13,22 @@ struct PersonDetailScreen: View {
     var body: some View {
         VStack {
             List {
-                Section(header: Image(systemName: "person.fill")
+                Section(){
+                    HStack {
+                        Spacer()
+                        Image(systemName: "person.fill")
                             .resizable()
                             .frame(width: UIScreen.main.bounds.width / 3,
                                    height:UIScreen.main.bounds.width / 3)
-                            
                             .padding()
-                ){
+                        Spacer()
+                    }
                     HStack {
                         Image(systemName: "phone")
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(.blue)
-                            
                         Text("\(person.phoneNumber)")
-                        Spacer()
                     }
                     HStack {
                         Image(systemName: "envelope")
@@ -38,10 +39,8 @@ struct PersonDetailScreen: View {
                     }
                 }
             }
+            .navigationBarTitle("\(person.fullName)")
         }
-        .padding()
-        .navigationBarTitle("Person detail")
-        
     }
 }
 
