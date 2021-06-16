@@ -10,10 +10,13 @@ import SwiftUI
 struct PersonDetailScreen: View {
     let person: Person
     
+   
+    
     var body: some View {
         VStack {
-            List {
-                Section(){
+            Form {
+                Section{
+                    
                     HStack {
                         Spacer()
                         Image(systemName: "person.fill")
@@ -23,6 +26,7 @@ struct PersonDetailScreen: View {
                             .padding()
                         Spacer()
                     }
+                    
                     HStack {
                         Image(systemName: "phone")
                             .resizable()
@@ -30,6 +34,7 @@ struct PersonDetailScreen: View {
                             .foregroundColor(.blue)
                         Text("\(person.phoneNumber)")
                     }
+                    
                     HStack {
                         Image(systemName: "envelope")
                             .resizable()
@@ -41,6 +46,8 @@ struct PersonDetailScreen: View {
             }
             .navigationBarTitle("\(person.fullName)")
         }
+        
+        
     }
 }
 
